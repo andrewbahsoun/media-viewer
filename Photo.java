@@ -5,6 +5,7 @@ public class Photo {
     private String filePath;
     private int width; 
     private int height; 
+    private ImageIcon scaledIcon;
 
     public Photo() {
 
@@ -14,13 +15,21 @@ public class Photo {
         this.width = widthI;
         this.height = heightI;
 
+        createImageIcon();
+
+    }
+    
+    public void createImageIcon() {
         ImageIcon originalIcon = new ImageIcon(filePath);
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        this.scaledIcon = scaledIcon;
     }
 
-    public void getPhoto() {
-        
+    public ImageIcon getImageIcon() {
+        return this.scaledIcon;
     }
+
 }

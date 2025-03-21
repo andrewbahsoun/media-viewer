@@ -3,15 +3,23 @@ import java.awt.*;
 import java.io.IOException;
 
 public class PhotoDisplayPanel extends JPanel {
-    public PhotoDisplayPanel() {
 
-    }
-    public void displayPhoto() {
-        
-    }
+    private Photo photo;
+    private JLabel photoLabel;
 
-    public void displayFile(String filePath, int height, int width) throws IOException {
+    public PhotoDisplayPanel(Photo newPhoto) {
+        this.photo = newPhoto;
+
+        // Have the Photo create its ImageIcon
+        photo.createImageIcon();
         
+        // Create a JLabel using the Photo's ImageIcon
+        photoLabel = new JLabel(photo.getImageIcon());
         
+        // Add the label to this panel
+        add(photoLabel);
     }
 }
+
+
+
