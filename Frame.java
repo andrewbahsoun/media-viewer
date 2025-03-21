@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public class Frame extends JFrame {
     private int frameWidth;
-    private int frameHeight; 
+    private int frameHeight;  
 
     public Frame() {
         this.frameWidth = 1000;
@@ -28,27 +28,15 @@ public class Frame extends JFrame {
         // Create photos ArrayList
         PhotoCollection testCollection = new PhotoCollection();
         ArrayList<Photo> photos = testCollection.getPhotos(); 
-
-        // Create JPanels for each Photo, add them to the frame
-
-        JButton btnNext = new JButton("Next");
-        btnNext.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                // PhotoDisplayPanel currPhoto = new PhotoDisplayPanel(photos.get(0));
-                PhotoDisplayPanel currPhoto = new PhotoDisplayPanel(photos.get(0));
-                add(currPhoto);
-                revalidate();
-                repaint();
-                
-                //dispose();
-                
-            }
-        });
-        btnNext.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNext.setBounds(492, 505, 123, 59);
-        add(btnNext);
+        displayCollection(photos);
+        
         setVisible(true);
+    }
 
+    private void displayCollection(ArrayList<Photo> collection) {
+        PhotoDisplayPanel photoPanel = new PhotoDisplayPanel(collection.get(0));
+        NextButton btnNext = new NextButton(collection, photoPanel, getContentPane());
+
+        add(btnNext);
     }
 }

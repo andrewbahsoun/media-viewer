@@ -10,6 +10,8 @@ public class PhotoDisplayPanel extends JPanel {
     public PhotoDisplayPanel(Photo newPhoto) {
         this.photo = newPhoto;
 
+    }
+    public void createImageIconAndAddToPanel() {
         // Have the Photo create its ImageIcon
         photo.createImageIcon();
         
@@ -17,7 +19,13 @@ public class PhotoDisplayPanel extends JPanel {
         photoLabel = new JLabel(photo.getImageIcon());
         
         // Add the label to this panel
+        removeAll();
         add(photoLabel);
+    }
+
+    public void resetPhoto(Photo newPhoto) {
+        this.photo = newPhoto; 
+        createImageIconAndAddToPanel();
     }
 }
 

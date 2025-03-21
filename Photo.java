@@ -14,8 +14,7 @@ public class Photo {
         this.filePath = filePathI;
         this.width = widthI;
         this.height = heightI;
-
-        createImageIcon();
+        createImageIcon(); //this could be problematic, photos shouldn't always create an Image Icon right?
 
     }
     

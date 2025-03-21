@@ -4,7 +4,8 @@ import java.io.IOException;
 public class PhotoCollection {
     private ArrayList<Photo> photos = new ArrayList<>();
     private String baseFilePath = "/Users/andrewbahsoun/Desktop/photos_I_like/";
-    private String[] arr1={"SAM_0120.JPG", "SAM_0127.JPG", "SAM_0143.JPG", "SAM_0151.JPG", "SAM_0170.JPG", "SAM_0177.JPG"};
+    private String[] collection1={"SAM_0120.JPG", "SAM_0127.JPG", "SAM_0143.JPG", "SAM_0151.JPG", "SAM_0170.JPG", "SAM_0177.JPG"};
+    private int currentPhotoCollection1;
 
     public PhotoCollection() {
         try {
@@ -17,8 +18,8 @@ public class PhotoCollection {
     }
     
     private void fillPhotos() throws IOException {
-        for (int i = 0; i < arr1.length; i++) {
-            photos.add(new Photo("/Users/andrewbahsoun/Desktop/photos_I_like/SAM_0120.JPG", 500, 375));
+        for (int i = 0; i < collection1.length; i++) {
+            photos.add(new Photo(baseFilePath + collection1[i], 500, 375));
         }
 
     }
