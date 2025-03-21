@@ -14,8 +14,10 @@ public class NextButton extends JButton implements ActionListener {
     private int currentPhotoNum;
 
     public NextButton(ArrayList<Photo> collection, PhotoDisplayPanel panel, Container container) {
+
         super("Next"); 
         // this.setPreferredSize(new Dimension(50, 10)); to change the size
+
         this.panel = panel; 
         this.container = container;
         this.currentPhotoNum = 0; 
@@ -25,15 +27,24 @@ public class NextButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //catches when the colleciton has no more photos left
         try {
             panel.resetPhoto(collection.get(currentPhotoNum)); 
         }
         catch(ArrayIndexOutOfBoundsException exception) { 
+            //future work... create some kind of action that disables the button
+            //future work.. could also just not allow to be pressed when currentPhotoNum = len(collection)
             System.out.println("No more photos in the colleciton");
         }
+
+        //adds to the main Jframe (which is passed in from reference during construction)
         container.add(panel);
+
+        //revaluates the container to account for the new panel and repaints it
         container.revalidate();
         container.repaint();
+
+        // keeps track of the current photo
         this.currentPhotoNum++;
     }
 }
