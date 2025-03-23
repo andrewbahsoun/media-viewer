@@ -27,7 +27,7 @@ public class Frame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         // Create photos ArrayList
-        PhotoCollection testCollection = new PhotoCollection();
+        PhotoCollection testCollection = new PhotoCollection("Seville");
         ArrayList<Photo> photos = testCollection.getPhotos(); 
 
         //displays collection and adds Next button
