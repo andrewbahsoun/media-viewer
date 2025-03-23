@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-public class NextButton extends JButton implements ActionListener {
+public class PrevButton extends JButton implements ActionListener {
 
     private Container container; // The container where the new panel should be added
     private PhotoDisplayPanel panel; 
     private ArrayList<Photo> collection; 
     private PhotoViewerController numController; 
 
-    public NextButton(ArrayList<Photo> collection, PhotoDisplayPanel panel, Container container, PhotoViewerController numCounter) {
+    public PrevButton(ArrayList<Photo> collection, PhotoDisplayPanel panel, Container container, PhotoViewerController numCounter) {
 
-        super("Next"); 
+        super("Prev"); 
         // this.setPreferredSize(new Dimension(50, 10)); to change the size
 
         this.panel = panel; 
@@ -23,18 +23,19 @@ public class NextButton extends JButton implements ActionListener {
         this.numController = numCounter;
         this.collection = collection;
         addActionListener(this);  // Register this button as its own ActionListener
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //catches when the colleciton has no more photos left
-        if (numController.getCurrentPhotoNum() == collection.size() -2) {
-            System.out.println("No more photos");
+        if (numController.getCurrentPhotoNum() == 0) {
+            System.out.println("No more photos back here!");
         }
         else {
-            numController.incrementNum();
+            numController.decrementNum();
 
-            System.out.println("Next changing photo to: " + numController.getCurrentPhotoNum());
+            System.out.println("Prev changing photo to: " + numController.getCurrentPhotoNum());
             panel.resetPhoto(collection.get(numController.getCurrentPhotoNum())); 
 
             //adds to the main Jframe (which is passed in from reference during construction)
@@ -47,7 +48,7 @@ public class NextButton extends JButton implements ActionListener {
 
         
 
-        
+
     }
 
 }

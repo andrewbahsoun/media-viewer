@@ -18,7 +18,7 @@ public class PhotoCollection {
     
     private void fillPhotos(String[] collection) throws IOException {
         for (int i = 0; i < collection1.length; i++) {
-            photos.add(new Photo(baseFilePath + collection[i], 500, 375));
+            photos.add(new Photo(baseFilePath + collection[i], 750, 562));
         }
 
     }
