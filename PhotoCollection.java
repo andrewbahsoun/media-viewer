@@ -6,7 +6,6 @@ public class PhotoCollection {
 
     private String baseFilePath = "/Users/andrewbahsoun/Desktop/Abroad_Photos";
     private String folderName;
-
     private ArrayList<Photo> photos = new ArrayList<>();
 
     public PhotoCollection(String folder) {
